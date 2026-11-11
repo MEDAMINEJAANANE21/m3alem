@@ -1,0 +1,38 @@
+# Full stack: http://localhost:8080
+#   frontend (nginx) --/api--> backend (Express) --> mongo
+# Usage: create a .env file next to this one with JWT_SECRET=..., then `docker compose up --build`.
+
+services:
+  mongo:
+    image: mongo:7
+    restart: unless-stopped
+    volumes:
+      - mongo-data:/data/db
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    restart: unless-stopped
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      MONGODB_URI: mongodb://mongo:27017/m3alem
+      JWT_SECRET: ${JWT_SECRET:?Set JWT_SECRET in a .env file next to docker-compose.yml}
+      JWT_EXPIRES_IN: ${JWT_EXPIRES_IN:-2h}
+      TRUST_PROXY: 1
+    depends_on:
+      - mongo
+
+  frontend:
+    build:
+      context: .
+      dockerfile: frontend/Dockerfile
+    restart: unless-stopped
+    ports:
+      - '8080:80'
+    depends_on:
+      - backend
+
+volumes:
+  mongo-data:
