@@ -43,6 +43,7 @@ d'API écrite en dur dans le client.
 | Outils   | npm workspaces, ESLint, Prettier, node:test + supertest, Docker, GitHub Actions |
 
 Détails : [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md). API : [docs/API.md](docs/API.md).
+Mise en ligne gratuite (Atlas + Render) : [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md).
 
 ## Démarrage
 

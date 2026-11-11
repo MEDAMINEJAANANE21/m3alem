@@ -1,5 +1,9 @@
+import { DEMO_MODE } from '../config/app.config.js';
 import { el } from '../utils/dom.util.js';
 import { session } from '../stores/session.store.js';
+
+const DEMO_MESSAGE =
+  'Projet de démonstration open source : les réservations ne déclenchent aucune intervention réelle';
 
 const NAV_LINKS = [
   { href: '/', label: 'Accueil' },
@@ -112,8 +116,12 @@ function mount() {
 
   header?.classList.add('site-header');
   footer?.classList.add('site-footer');
-  header?.replaceChildren(renderHeader());
+  header?.replaceChildren(...(DEMO_MODE ? [renderDemoBanner()] : []), renderHeader());
   footer?.replaceChildren(renderFooter());
+}
+
+function renderDemoBanner() {
+  return el('p', { className: 'demo-banner', role: 'note', text: DEMO_MESSAGE });
 }
 
 mount();

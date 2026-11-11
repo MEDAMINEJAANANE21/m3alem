@@ -1,0 +1,51 @@
+# Render Blueprint — deploys the API and the website from this repository.
+# See docs/DEPLOYMENT.md. The database is a free MongoDB Atlas cluster (not managed here).
+
+services:
+  # REST API (Docker image from backend/Dockerfile)
+  - type: web
+    name: m3alem-api
+    runtime: docker
+    plan: free
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: .
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGODB_URI
+        sync: false # asked when the Blueprint is created: paste the Atlas connection string
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_EXPIRES_IN
+        value: 2h
+      - key: TRUST_PROXY
+        value: '1'
+
+  # Website (Vite build). /api/* is proxied to the API, like nginx does with Docker.
+  - type: web
+    name: m3alem
+    runtime: static
+    buildCommand: npm ci --workspace frontend && npm run build
+    staticPublishPath: ./frontend/dist
+    envVars:
+      - key: NODE_VERSION
+        value: '22'
+    routes:
+      # If Render gives the API another URL (name already taken), update it here.
+      - type: rewrite
+        source: /api/*
+        destination: https://m3alem-api.onrender.com/api/*
+    headers:
+      - path: /*
+        name: Content-Security-Policy
+        value: "default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://api.web3forms.com; frame-src https://www.google.com; object-src 'none'; base-uri 'self'; form-action 'self'"
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: Referrer-Policy
+        value: strict-origin-when-cross-origin
+      - path: /assets/*
+        name: Cache-Control
+        value: public, max-age=31536000, immutable

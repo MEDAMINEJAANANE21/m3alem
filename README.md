@@ -44,7 +44,8 @@ hard-coded in the client.
 | Tooling  | npm workspaces, ESLint, Prettier, node:test + supertest, Docker, GitHub Actions |
 
 More details in [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md). The REST API is documented in
-[docs/API.md](docs/API.md).
+[docs/API.md](docs/API.md). To put the site online for free (Atlas + Render), follow
+[docs/DEPLOYMENT.md](docs/DEPLOYMENT.md).
 
 ## Getting started
 

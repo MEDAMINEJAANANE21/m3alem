@@ -1,4 +1,14 @@
 /* Header and footer, rendered by components/layout.component.js */
+.demo-banner {
+  margin: 0;
+  padding: 8px 16px;
+  border-bottom: 1px solid var(--color-hairline);
+  background: var(--color-raised);
+  color: var(--color-text-secondary);
+  font-size: 13px;
+  text-align: center;
+}
+
 .site-header {
   position: sticky;
   top: 0;
