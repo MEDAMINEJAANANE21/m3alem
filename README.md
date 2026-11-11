@@ -12,6 +12,8 @@ M3alem.ma is an open-source marketplace that connects customers with home-servic
 in Morocco: plumbers, electricians, air-conditioning technicians, cleaners, gardeners, locksmiths,
 carpenters, car washers and mechanics.
 
+![M3alem.ma home page: headline "Le bon artisan chez vous, au prix affiché" next to a plumber photo with a booking card](docs/images/home.png)
+
 ## Features
 
 - **Service catalog** grouped by category, with fixed, hourly and per-unit pricing

@@ -2,6 +2,7 @@
 
 > **B Click M3alem Ijik** — réservez un professionnel de confiance pour votre maison en quelques clics.
 
+[![CI](https://github.com/MEDAMINEJAANANE21/m3alem/actions/workflows/ci.yml/badge.svg)](https://github.com/MEDAMINEJAANANE21/m3alem/actions/workflows/ci.yml)
 [![Licence : MIT](https://img.shields.io/badge/Licence-MIT-green.svg)](LICENSE)
 ![Node](https://img.shields.io/badge/node-%3E%3D22.9-339933?logo=node.js&logoColor=white)
 
@@ -10,6 +11,8 @@
 M3alem.ma est une marketplace open source qui met en relation des clients et des professionnels
 du service à domicile au Maroc : plombiers, électriciens, techniciens climatisation, ménage,
 jardiniers, serruriers, menuisiers, lavage auto et mécaniciens.
+
+![Page d'accueil de M3alem.ma : titre « Le bon artisan chez vous, au prix affiché » à côté d'une photo de plombier et d'un bon d'intervention](docs/images/home.png)
 
 ## Fonctionnalités
 
