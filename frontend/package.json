@@ -1,0 +1,20 @@
+{
+  "name": "@m3alem/frontend",
+  "version": "1.0.0",
+  "private": true,
+  "description": "M3alem.ma web client (vanilla JS + Vite).",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^5.3.3",
+    "bootstrap-icons": "^1.11.3"
+  },
+  "devDependencies": {
+    "vite": "^6.3.5"
+  }
+}

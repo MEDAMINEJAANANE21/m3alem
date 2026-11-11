@@ -1,0 +1,107 @@
+import { el } from '../utils/dom.util.js';
+import { session } from '../stores/session.store.js';
+
+const NAV_LINKS = [
+  { href: '/', label: 'Accueil' },
+  { href: '/#comment', label: 'Comment ça marche' },
+  { href: '/#faq', label: 'À propos' },
+  { href: '/services.html', label: 'Commander' },
+  { href: '/contact.html', label: 'Contact' },
+];
+
+const SOCIAL_LINKS = [
+  { href: 'https://www.facebook.com', icon: 'bi-facebook', label: 'Facebook' },
+  { href: 'https://www.instagram.com', icon: 'bi-instagram', label: 'Instagram' },
+  { href: 'https://x.com', icon: 'bi-twitter-x', label: 'X' },
+  { href: 'https://wa.me/212600000000', icon: 'bi-whatsapp', label: 'WhatsApp' },
+];
+
+const isCurrentPage = (href) => href === window.location.pathname;
+
+function renderNavLink({ href, label }) {
+  return el('a', {
+    href,
+    text: label,
+    className: 'site-nav__link',
+    'aria-current': isCurrentPage(href) ? 'page' : undefined,
+  });
+}
+
+function renderAccountActions() {
+  if (!session.isLoggedIn()) {
+    return [el('a', { href: '/auth.html', className: 'btn btn-dark btn-sm', text: 'Connexion' })];
+  }
+  return [
+    el('a', { href: '/account.html', className: 'btn btn-outline-dark btn-sm' }, [
+      el('i', { className: 'bi bi-person-circle me-1', 'aria-hidden': 'true' }),
+      session.user.name,
+    ]),
+    el('button', {
+      type: 'button',
+      className: 'btn btn-dark btn-sm',
+      text: 'Déconnexion',
+      on: { click: () => session.clear() },
+    }),
+  ];
+}
+
+function renderHeader() {
+  const nav = el('nav', { className: 'site-nav', id: 'site-nav', 'aria-label': 'Navigation principale' }, [
+    ...NAV_LINKS.map(renderNavLink),
+    el('div', { className: 'site-nav__actions' }, renderAccountActions()),
+  ]);
+
+  const toggle = el(
+    'button',
+    {
+      type: 'button',
+      className: 'site-header__toggle',
+      'aria-controls': 'site-nav',
+      'aria-expanded': 'false',
+      'aria-label': 'Ouvrir le menu',
+      on: {
+        click: (event) => {
+          const isOpen = nav.classList.toggle('is-open');
+          event.currentTarget.setAttribute('aria-expanded', String(isOpen));
+        },
+      },
+    },
+    [el('i', { className: 'bi bi-list', 'aria-hidden': 'true' })],
+  );
+
+  return el('div', { className: 'site-header__inner' }, [
+    el('a', { href: '/', className: 'site-header__logo' }, [
+      el('img', { src: '/img/logo.png', alt: 'M3alem.ma', width: '150', height: '64' }),
+    ]),
+    toggle,
+    nav,
+  ]);
+}
+
+function renderFooter() {
+  return el('div', { className: 'site-footer__inner' }, [
+    el(
+      'div',
+      { className: 'site-footer__socials' },
+      SOCIAL_LINKS.map(({ href, icon, label }) =>
+        el('a', { href, target: '_blank', rel: 'noopener noreferrer', 'aria-label': label }, [
+          el('i', { className: `bi ${icon}`, 'aria-hidden': 'true' }),
+        ]),
+      ),
+    ),
+    el('p', { text: `© ${new Date().getFullYear()} M3alem.ma · Projet open source sous licence MIT` }),
+  ]);
+}
+
+function mount() {
+  const header = document.getElementById('site-header');
+  const footer = document.getElementById('site-footer');
+
+  header?.classList.add('site-header');
+  footer?.classList.add('site-footer');
+  header?.replaceChildren(renderHeader());
+  footer?.replaceChildren(renderFooter());
+}
+
+mount();
+session.subscribe(mount);

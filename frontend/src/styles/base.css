@@ -1,0 +1,104 @@
+@import 'bootstrap/dist/css/bootstrap.min.css';
+@import 'bootstrap-icons/font/bootstrap-icons.min.css';
+
+/* Design tokens shared by every page. Change the brand here, not in page stylesheets. */
+:root {
+  --color-primary-100: #e3f2fd;
+  --color-primary-200: #90caf9;
+  --color-primary-400: #2e86de;
+  --color-primary-500: #1565c0;
+  --color-accent: #ffd700;
+  --color-surface: #ffffff;
+  --color-surface-muted: #f5f7fa;
+  --color-border: #e1e5ea;
+  --color-text: #263238;
+  --color-text-muted: #607d8b;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 20px;
+  --shadow-sm: 0 2px 10px rgb(0 0 0 / 6%);
+  --shadow-md: 0 10px 30px rgb(0 0 0 / 10%);
+
+  --font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  /* Map the brand onto Bootstrap's variables. */
+  --bs-primary: var(--color-primary-400);
+  --bs-body-font-family: var(--font-family);
+  --bs-body-color: var(--color-text);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  font-family: var(--font-family);
+}
+
+main {
+  flex: 1;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Keeps anchored sections from hiding under the sticky header. */
+  scroll-padding-top: 100px;
+}
+
+.btn-primary {
+  --bs-btn-bg: var(--color-primary-400);
+  --bs-btn-border-color: var(--color-primary-400);
+  --bs-btn-hover-bg: var(--color-primary-500);
+  --bs-btn-hover-border-color: var(--color-primary-500);
+  --bs-btn-active-bg: var(--color-primary-500);
+}
+
+.page {
+  padding-block: 2.5rem;
+}
+
+.page--centered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  text-align: center;
+}
+
+.page__title {
+  margin-bottom: 2rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.page__title::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  margin: 0.75rem auto 0;
+  border-radius: 2px;
+  background: var(--color-primary-400);
+}
+
+.form-label {
+  margin-top: 0.75rem;
+  margin-bottom: 0.25rem;
+  font-weight: 500;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}

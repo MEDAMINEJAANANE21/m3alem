@@ -1,0 +1,113 @@
+/* Header and footer, rendered by js/components/layout.js */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0.5rem 1rem;
+}
+
+/* The logo file is a 500x500 square with wide transparent margins: crop it to its useful band. */
+.site-header__logo img {
+  display: block;
+  width: 150px;
+  height: 64px;
+  object-fit: cover;
+}
+
+.site-header__toggle {
+  display: none;
+  border: 0;
+  background: none;
+  font-size: 1.75rem;
+  color: var(--color-text);
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.site-nav__link {
+  color: var(--color-text);
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.site-nav__link:hover,
+.site-nav__link[aria-current='page'] {
+  color: var(--color-primary-400);
+}
+
+.site-nav__actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.site-footer {
+  padding: 2rem 1rem;
+  background: #212529;
+  color: #ffffff;
+  text-align: center;
+}
+
+.site-footer__socials {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.site-footer__socials a {
+  color: #ffffff;
+  transition: color 0.2s ease;
+}
+
+.site-footer__socials a:hover {
+  color: var(--color-primary-200);
+}
+
+.site-footer p {
+  margin: 0;
+  color: #cccccc;
+  font-size: 0.875rem;
+}
+
+@media (max-width: 860px) {
+  .site-header__inner {
+    flex-wrap: wrap;
+  }
+
+  .site-header__toggle {
+    display: block;
+  }
+
+  .site-nav {
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    padding-bottom: 1rem;
+    text-align: center;
+  }
+
+  .site-nav.is-open {
+    display: flex;
+  }
+
+  .site-nav__actions {
+    justify-content: center;
+  }
+}

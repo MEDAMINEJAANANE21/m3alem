@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact – M3alem.ma</title>
+    <link rel="icon" href="/img/logo.png" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="/src/styles/base.css" />
+    <link rel="stylesheet" href="/src/styles/layout.css" />
+    <link rel="stylesheet" href="/src/styles/pages/contact.page.css" />
+  </head>
+  <body>
+    <header id="site-header"></header>
+
+    <main class="page container">
+      <h1 class="page__title">Contactez-nous</h1>
+
+      <div class="contact">
+        <form id="contact-form" class="contact__form" novalidate>
+          <div id="contact-feedback" aria-live="polite"></div>
+
+          <label class="form-label" for="contact-name">Nom</label>
+          <input class="form-control" id="contact-name" name="name" required autocomplete="name" />
+
+          <label class="form-label" for="contact-email">E-mail</label>
+          <input class="form-control" type="email" id="contact-email" name="email" required autocomplete="email" />
+
+          <label class="form-label" for="contact-message">Message</label>
+          <textarea class="form-control" id="contact-message" name="message" rows="6" required></textarea>
+
+          <button class="btn btn-success w-100 mt-3" type="submit">
+            Envoyer <i class="bi bi-send ms-1" aria-hidden="true"></i>
+          </button>
+        </form>
+
+        <div class="contact__map">
+          <iframe
+            class="contact__iframe"
+            title="Carte : EMSI Centre, Casablanca"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4089.608376989225!2d-7.6052691999999995!3d33.5892601!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda7cd66c80ee1f7%3A0xf9b8c0263f4788f2!2sMoroccan%20school%20of%20sciences%20of%20engineering!5e1!3m2!1sen!2sma!4v1744034879258!5m2!1sen!2sma"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen
+          ></iframe>
+          <h2 class="h5 mt-4 mb-1">EMSI Centre</h2>
+          <p class="mb-0">105 Rue Al Bakri, Casablanca 20250</p>
+        </div>
+      </div>
+    </main>
+
+    <footer id="site-footer"></footer>
+
+    <script type="module" src="/src/pages/contact.page.js"></script>
+  </body>
+</html>

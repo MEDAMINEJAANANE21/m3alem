@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="M3alem.ma : réservez en ligne un plombier, un électricien, un ménage ou un jardinier au Maroc."
+    />
+    <title>M3alem.ma – Services à domicile</title>
+    <link rel="icon" href="/img/logo.png" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="/src/styles/base.css" />
+    <link rel="stylesheet" href="/src/styles/layout.css" />
+    <link rel="stylesheet" href="/src/styles/pages/home.page.css" />
+  </head>
+  <body>
+    <header id="site-header"></header>
+
+    <main>
+      <section class="hero">
+        <div class="hero__card">
+          <h1>Votre expert du service à domicile en ligne</h1>
+          <p class="hero__slogan">B Click M3alem Ijik</p>
+          <a class="btn btn-success btn-lg rounded-pill px-5" href="/services.html">Réserver un service</a>
+          <p class="hero__tagline">
+            M3alem.ma : votre partenaire de confiance au quotidien.<br />
+            Libérez du temps, nous nous occupons du reste !
+          </p>
+        </div>
+      </section>
+
+      <section class="section" aria-labelledby="services-title">
+        <div class="container">
+          <h2 id="services-title" class="section__title">Nos services</h2>
+          <ul class="service-grid">
+            <li><a class="service-card" href="/services.html#plombier"><img src="/img/services/plombier.jpg" alt="" loading="lazy" /><span>Plombier</span></a></li>
+            <li><a class="service-card" href="/services.html#electricien"><img src="/img/services/electricien.jpg" alt="" loading="lazy" /><span>Électricien</span></a></li>
+            <li><a class="service-card" href="/services.html#climatisation"><img src="/img/services/climatisation.jpg" alt="" loading="lazy" /><span>Climatisation</span></a></li>
+            <li><a class="service-card" href="/services.html#menage"><img src="/img/services/menage.jpg" alt="" loading="lazy" /><span>Ménage</span></a></li>
+            <li><a class="service-card" href="/services.html#lavage-auto"><img src="/img/services/lavage-auto.jpg" alt="" loading="lazy" /><span>Lavage de voiture</span></a></li>
+            <li><a class="service-card" href="/services.html#jardinage"><img src="/img/services/jardinage.jpg" alt="" loading="lazy" /><span>Jardinage</span></a></li>
+            <li><a class="service-card" href="/services.html#serrurier"><img src="/img/services/serrurier.jpg" alt="" loading="lazy" /><span>Serrurier</span></a></li>
+            <li><a class="service-card" href="/services.html#menuisier"><img src="/img/services/menuisier.jpg" alt="" loading="lazy" /><span>Menuisier</span></a></li>
+            <li><a class="service-card" href="/services.html#mecanicien"><img src="/img/services/mecanicien.jpg" alt="" loading="lazy" /><span>Mécanicien</span></a></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section timeline" id="comment" aria-labelledby="timeline-title">
+        <div class="container">
+          <h2 id="timeline-title" class="section__title text-white">Comment ça marche ?</h2>
+          <ol class="timeline__list">
+            <li class="timeline__item">
+              <span class="timeline__icon"><i class="bi bi-person-plus-fill" aria-hidden="true"></i></span>
+              <div>
+                <h3>Je crée mon compte</h3>
+                <p>Un nom, un e-mail et un mot de passe : c'est tout !</p>
+              </div>
+            </li>
+            <li class="timeline__item">
+              <span class="timeline__icon"><i class="bi bi-cart-check-fill" aria-hidden="true"></i></span>
+              <div>
+                <h3>Je commande un service</h3>
+                <p>Je choisis le service, la date, l'heure et l'adresse de la prestation.</p>
+              </div>
+            </li>
+            <li class="timeline__item">
+              <span class="timeline__icon"><i class="bi bi-house-check-fill" aria-hidden="true"></i></span>
+              <div>
+                <h3>M3alem ja !</h3>
+                <p>Le professionnel intervient chez moi et s'occupe de tout.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section" id="faq" aria-labelledby="faq-title">
+        <div class="container">
+          <h2 id="faq-title" class="section__title">Questions fréquentes</h2>
+          <div class="row align-items-center g-5">
+            <div class="col-lg-5">
+              <img src="/img/faq.jpg" class="img-fluid" alt="" loading="lazy" />
+            </div>
+            <div class="col-lg-7">
+              <div class="accordion" id="faq-accordion">
+                <div class="accordion-item">
+                  <h3 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-1" aria-expanded="false" aria-controls="faq-1">
+                      Quels types de services proposez-vous ?
+                    </button>
+                  </h3>
+                  <div id="faq-1" class="accordion-collapse collapse" data-bs-parent="#faq-accordion">
+                    <div class="accordion-body">
+                      Une large gamme de services à domicile : plomberie, électricité, climatisation, ménage,
+                      jardinage, serrurerie, menuiserie, lavage auto, mécanique et bien plus encore.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h3 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-2" aria-expanded="false" aria-controls="faq-2">
+                      Dans quelles villes intervenez-vous ?
+                    </button>
+                  </h3>
+                  <div id="faq-2" class="accordion-collapse collapse" data-bs-parent="#faq-accordion">
+                    <div class="accordion-body">
+                      Principalement dans les grandes villes marocaines : Casablanca, Rabat, Marrakech, Fès, Tanger
+                      et Agadir. Notre zone d'intervention s'élargit régulièrement.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h3 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-3" aria-expanded="false" aria-controls="faq-3">
+                      Vos prestataires sont-ils vérifiés ?
+                    </button>
+                  </h3>
+                  <div id="faq-3" class="accordion-collapse collapse" data-bs-parent="#faq-accordion">
+                    <div class="accordion-body">
+                      Oui, nos prestataires sont vérifiés, expérimentés et évalués régulièrement par nos clients.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h3 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-4" aria-expanded="false" aria-controls="faq-4">
+                      Quels sont les modes de paiement acceptés ?
+                    </button>
+                  </h3>
+                  <div id="faq-4" class="accordion-collapse collapse" data-bs-parent="#faq-accordion">
+                    <div class="accordion-body">
+                      Espèces, virement bancaire ou paiement mobile (Inwi Money, Orange Money, CIH…), selon la
+                      disponibilité.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--muted" aria-labelledby="reviews-title">
+        <div class="container">
+          <h2 id="reviews-title" class="section__title">Avis de nos clients</h2>
+          <div id="reviews-list" class="reviews" aria-live="polite"></div>
+
+          <form id="review-form" class="review-form" novalidate>
+            <h3>Donnez votre avis</h3>
+            <div id="review-feedback"></div>
+            <label class="form-label" for="review-name">Votre nom</label>
+            <input class="form-control" id="review-name" name="authorName" required minlength="2" maxlength="60" />
+
+            <label class="form-label" for="review-comment">Votre expérience</label>
+            <textarea class="form-control" id="review-comment" name="comment" required minlength="5" maxlength="1000" rows="4"></textarea>
+
+            <label class="form-label" for="review-rating">Note</label>
+            <select class="form-select" id="review-rating" name="rating" required>
+              <option value="5">★★★★★ (5/5)</option>
+              <option value="4">★★★★☆ (4/5)</option>
+              <option value="3">★★★☆☆ (3/5)</option>
+              <option value="2">★★☆☆☆ (2/5)</option>
+              <option value="1">★☆☆☆☆ (1/5)</option>
+            </select>
+
+            <button class="btn btn-primary mt-3" type="submit">Envoyer</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer id="site-footer"></footer>
+
+    <script type="module" src="/src/pages/home.page.js"></script>
+  </body>
+</html>
