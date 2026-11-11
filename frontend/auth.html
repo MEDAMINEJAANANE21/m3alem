@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Connexion – M3alem.ma</title>
     <link rel="icon" href="/img/logo.png" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    />
     <link rel="stylesheet" href="/src/styles/base.css" />
     <link rel="stylesheet" href="/src/styles/layout.css" />
     <link rel="stylesheet" href="/src/styles/pages/auth.page.css" />
@@ -16,49 +19,131 @@
     <main class="page">
       <div class="auth-card">
         <div class="auth-card__tabs" role="tablist">
-          <button class="auth-card__tab is-active" type="button" role="tab" aria-selected="true" aria-controls="login-form" data-tab="login">Connexion</button>
-          <button class="auth-card__tab" type="button" role="tab" aria-selected="false" aria-controls="register-form" data-tab="register">Inscription</button>
+          <button
+            class="auth-card__tab is-active"
+            type="button"
+            role="tab"
+            aria-selected="true"
+            aria-controls="login-form"
+            data-tab="login"
+          >
+            Connexion
+          </button>
+          <button
+            class="auth-card__tab"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            aria-controls="register-form"
+            data-tab="register"
+          >
+            Inscription
+          </button>
         </div>
 
         <div id="auth-feedback" aria-live="polite"></div>
 
         <form id="login-form" class="auth-card__form" role="tabpanel" novalidate>
           <label class="form-label" for="login-email">E-mail</label>
-          <input class="form-control" type="email" id="login-email" name="email" required autocomplete="email" />
+          <input
+            class="form-control"
+            type="email"
+            id="login-email"
+            name="email"
+            required
+            autocomplete="email"
+          />
 
           <label class="form-label" for="login-password">Mot de passe</label>
-          <input class="form-control" type="password" id="login-password" name="password" required autocomplete="current-password" />
+          <input
+            class="form-control"
+            type="password"
+            id="login-password"
+            name="password"
+            required
+            autocomplete="current-password"
+          />
 
           <button class="btn btn-success w-100 mt-3" type="submit">Se connecter</button>
         </form>
 
         <form id="register-form" class="auth-card__form" role="tabpanel" hidden novalidate>
           <label class="form-label" for="register-name">Nom complet</label>
-          <input class="form-control" id="register-name" name="name" required minlength="2" maxlength="100" autocomplete="name" />
+          <input
+            class="form-control"
+            id="register-name"
+            name="name"
+            required
+            minlength="2"
+            maxlength="100"
+            autocomplete="name"
+          />
 
           <label class="form-label" for="register-email">E-mail</label>
-          <input class="form-control" type="email" id="register-email" name="email" required autocomplete="email" />
+          <input
+            class="form-control"
+            type="email"
+            id="register-email"
+            name="email"
+            required
+            autocomplete="email"
+          />
 
           <label class="form-label" for="register-phone">Téléphone (optionnel)</label>
-          <input class="form-control" type="tel" id="register-phone" name="phone" autocomplete="tel" />
+          <input
+            class="form-control"
+            type="tel"
+            id="register-phone"
+            name="phone"
+            autocomplete="tel"
+          />
 
           <fieldset class="mt-2">
             <legend class="form-label">Je suis</legend>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="role" id="role-client" value="client" checked />
+              <input
+                class="form-check-input"
+                type="radio"
+                name="role"
+                id="role-client"
+                value="client"
+                checked
+              />
               <label class="form-check-label" for="role-client">Client</label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="role" id="role-provider" value="prestataire" />
+              <input
+                class="form-check-input"
+                type="radio"
+                name="role"
+                id="role-provider"
+                value="prestataire"
+              />
               <label class="form-check-label" for="role-provider">Prestataire</label>
             </div>
           </fieldset>
 
           <label class="form-label" for="register-password">Mot de passe (8 caractères min.)</label>
-          <input class="form-control" type="password" id="register-password" name="password" required minlength="8" autocomplete="new-password" />
+          <input
+            class="form-control"
+            type="password"
+            id="register-password"
+            name="password"
+            required
+            minlength="8"
+            autocomplete="new-password"
+          />
 
           <label class="form-label" for="register-confirm">Confirmer le mot de passe</label>
-          <input class="form-control" type="password" id="register-confirm" name="confirmPassword" required minlength="8" autocomplete="new-password" />
+          <input
+            class="form-control"
+            type="password"
+            id="register-confirm"
+            name="confirmPassword"
+            required
+            minlength="8"
+            autocomplete="new-password"
+          />
 
           <button class="btn btn-success w-100 mt-3" type="submit">Créer mon compte</button>
         </form>

@@ -69,10 +69,16 @@ function renderBooking(booking) {
 
   return el('article', { className: 'booking-card' }, [
     el('div', { className: 'booking-card__header' }, [
-      el('h3', { className: 'h6 mb-0', text: quantity ? `${service.title} (${quantity})` : service.title }),
+      el('h3', {
+        className: 'h6 mb-0',
+        text: quantity ? `${service.title} (${quantity})` : service.title,
+      }),
       el('span', { className: `badge ${badge.className}`, text: badge.label }),
     ]),
-    el('p', { className: 'mb-1', text: `${formatDateTime(booking.scheduledAt)} · ${booking.address}` }),
+    el('p', {
+      className: 'mb-1',
+      text: `${formatDateTime(booking.scheduledAt)} · ${booking.address}`,
+    }),
     el('p', { className: 'mb-1 text-muted', text: describeCounterpart(booking) }),
     booking.notes ? el('p', { className: 'mb-1 fst-italic', text: booking.notes }) : '',
     el('div', { className: 'booking-card__footer' }, [

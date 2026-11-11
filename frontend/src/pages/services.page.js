@@ -115,15 +115,22 @@ function renderCartItem(item) {
   const quantity = formatQuantity(item.quantity, item.pricingUnit);
   return el('li', { className: 'cart__item' }, [
     el('div', {}, [
-      el('p', { className: 'cart__item-name', text: quantity ? `${item.title} (${quantity})` : item.title }),
+      el('p', {
+        className: 'cart__item-name',
+        text: quantity ? `${item.title} (${quantity})` : item.title,
+      }),
       el('small', { text: formatPrice(item.total) }),
     ]),
-    el('button', {
-      type: 'button',
-      className: 'btn btn-link btn-sm text-danger',
-      'aria-label': `Retirer ${item.title} du panier`,
-      on: { click: () => cart.remove(item.id) },
-    }, [el('i', { className: 'bi bi-x-lg', 'aria-hidden': 'true' })]),
+    el(
+      'button',
+      {
+        type: 'button',
+        className: 'btn btn-link btn-sm text-danger',
+        'aria-label': `Retirer ${item.title} du panier`,
+        on: { click: () => cart.remove(item.id) },
+      },
+      [el('i', { className: 'bi bi-x-lg', 'aria-hidden': 'true' })],
+    ),
   ]);
 }
 
@@ -161,7 +168,9 @@ async function submitBookings(details) {
       apiClient.createBooking({ ...details, service: item.serviceId, quantity: item.quantity }),
     ),
   );
-  const bookedIds = items.filter((_item, index) => results[index].status === 'fulfilled').map((item) => item.id);
+  const bookedIds = items
+    .filter((_item, index) => results[index].status === 'fulfilled')
+    .map((item) => item.id);
   const firstFailure = results.find((result) => result.status === 'rejected');
   cart.removeMany(bookedIds);
   return { bookedCount: bookedIds.length, failure: firstFailure?.reason };

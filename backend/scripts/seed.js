@@ -8,12 +8,26 @@ import { CATALOG } from './data/catalog.data.js';
 
 const DEMO_USERS = [
   { name: 'Admin M3alem', email: 'admin@m3alem.local', role: ROLES.ADMIN },
-  { name: 'Karim Prestataire', email: 'pro@m3alem.local', role: ROLES.PROVIDER, phone: '+212600000001' },
-  { name: 'Salma Cliente', email: 'client@m3alem.local', role: ROLES.CLIENT, phone: '+212600000002' },
+  {
+    name: 'Karim Prestataire',
+    email: 'pro@m3alem.local',
+    role: ROLES.PROVIDER,
+    phone: '+212600000001',
+  },
+  {
+    name: 'Salma Cliente',
+    email: 'client@m3alem.local',
+    role: ROLES.CLIENT,
+    phone: '+212600000002',
+  },
 ];
 
 const DEMO_REVIEWS = [
-  { authorName: 'Youssef', rating: 5, comment: 'Plombier arrivé en 1h, travail propre. Je recommande !' },
+  {
+    authorName: 'Youssef',
+    rating: 5,
+    comment: 'Plombier arrivé en 1h, travail propre. Je recommande !',
+  },
   { authorName: 'Imane', rating: 4, comment: 'Bon service de ménage, ponctuel et efficace.' },
 ];
 
@@ -39,8 +53,12 @@ async function seed() {
   await Service.insertMany(CATALOG.map((service) => ({ ...service, provider: provider.id })));
   await Review.insertMany(DEMO_REVIEWS);
 
-  console.log(`Seeded ${CATALOG.length} services, ${DEMO_REVIEWS.length} reviews and demo accounts:`);
-  DEMO_USERS.forEach(({ email, role }) => console.log(`  ${role.padEnd(12)} ${email}  /  ${password}`));
+  console.log(
+    `Seeded ${CATALOG.length} services, ${DEMO_REVIEWS.length} reviews and demo accounts:`,
+  );
+  DEMO_USERS.forEach(({ email, role }) =>
+    console.log(`  ${role.padEnd(12)} ${email}  /  ${password}`),
+  );
 }
 
 seed()

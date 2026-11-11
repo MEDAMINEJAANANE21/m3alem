@@ -17,7 +17,9 @@ export function el(tag, options = {}, children = []) {
 }
 
 export function showAlert(container, message, type = 'danger') {
-  container.replaceChildren(el('div', { className: `alert alert-${type}`, role: 'alert', text: message }));
+  container.replaceChildren(
+    el('div', { className: `alert alert-${type}`, role: 'alert', text: message }),
+  );
 }
 
 export function clearAlert(container) {

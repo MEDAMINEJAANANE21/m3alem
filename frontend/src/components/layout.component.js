@@ -46,10 +46,14 @@ function renderAccountActions() {
 }
 
 function renderHeader() {
-  const nav = el('nav', { className: 'site-nav', id: 'site-nav', 'aria-label': 'Navigation principale' }, [
-    ...NAV_LINKS.map(renderNavLink),
-    el('div', { className: 'site-nav__actions' }, renderAccountActions()),
-  ]);
+  const nav = el(
+    'nav',
+    { className: 'site-nav', id: 'site-nav', 'aria-label': 'Navigation principale' },
+    [
+      ...NAV_LINKS.map(renderNavLink),
+      el('div', { className: 'site-nav__actions' }, renderAccountActions()),
+    ],
+  );
 
   const toggle = el(
     'button',
@@ -89,7 +93,9 @@ function renderFooter() {
         ]),
       ),
     ),
-    el('p', { text: `© ${new Date().getFullYear()} M3alem.ma · Projet open source sous licence MIT` }),
+    el('p', {
+      text: `© ${new Date().getFullYear()} M3alem.ma · Projet open source sous licence MIT`,
+    }),
   ]);
 }
 

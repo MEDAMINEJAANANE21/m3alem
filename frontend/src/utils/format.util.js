@@ -4,13 +4,18 @@ const UNIT_SUFFIX = { fixed: '', hour: '/h', unit: '/unité' };
 const QUANTITY_LABEL = { hour: 'h', unit: 'unité(s)' };
 const MAX_RATING = 5;
 
-const dateTimeFormatter = new Intl.DateTimeFormat('fr-FR', { dateStyle: 'medium', timeStyle: 'short' });
+const dateTimeFormatter = new Intl.DateTimeFormat('fr-FR', {
+  dateStyle: 'medium',
+  timeStyle: 'short',
+});
 const dateFormatter = new Intl.DateTimeFormat('fr-FR', { dateStyle: 'long' });
 
 export const formatPrice = (amount) => `${amount} ${CURRENCY}`;
 
 export function formatServicePrice(service) {
-  return service.priceLabel || `${formatPrice(service.price)}${UNIT_SUFFIX[service.pricingUnit] ?? ''}`;
+  return (
+    service.priceLabel || `${formatPrice(service.price)}${UNIT_SUFFIX[service.pricingUnit] ?? ''}`
+  );
 }
 
 export function formatQuantity(quantity, pricingUnit) {
