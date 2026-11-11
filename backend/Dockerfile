@@ -1,5 +1,5 @@
 # Build context: repository root (needed for the shared package-lock.json).
-FROM node:22-alpine
+FROM node:26-alpine
 
 WORKDIR /app
 ENV NODE_ENV=production
