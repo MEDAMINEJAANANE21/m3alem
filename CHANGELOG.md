@@ -4,6 +4,18 @@ All notable changes to this project are documented here.
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project uses
 [Semantic Versioning](https://semver.org/).
 
+## [Unreleased]
+
+### Changed
+
+- Visual redesign of the web client: warm neutral palette with the brand blue as the only accent,
+  Instrument Sans + Geist Mono, split hero with a real photo and a "work order" booking card,
+  quieter navigation, calmer copy (no exclamation marks, softened unverifiable claims).
+
+### Fixed
+
+- 12px horizontal scroll on mobile (FAQ grid).
+
 ## [1.0.0] — 2026-11-11
 
 First open-source release: complete rework of the original student project.

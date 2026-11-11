@@ -2,7 +2,7 @@ export const CATEGORIES = Object.freeze([
   {
     slug: 'plombier',
     label: 'Plombier',
-    note: 'Intervention sous 24h pour les urgences. Tarif déplacement : 30 € (remboursé si intervention).',
+    note: 'Urgence : précisez-le dans votre demande. Tarif déplacement : 30 € (remboursé si intervention).',
   },
   { slug: 'electricien', label: 'Électricien' },
   { slug: 'climatisation', label: 'Climatisation' },
@@ -12,7 +12,7 @@ export const CATEGORIES = Object.freeze([
   {
     slug: 'serrurier',
     label: 'Serrurier',
-    note: 'Intervention 24h/24 pour les urgences (majoration nocturne).',
+    note: 'Intervention de nuit possible selon le prestataire, avec majoration.',
   },
   { slug: 'menuisier', label: 'Menuisier' },
   { slug: 'mecanicien', label: 'Mécanicien à domicile' },

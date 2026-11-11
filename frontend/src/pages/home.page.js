@@ -4,32 +4,20 @@ import { apiClient } from '../api/api.client.js';
 import { clearAlert, describeError, el, setBusy, showAlert } from '../utils/dom.util.js';
 import { formatDate, formatStars } from '../utils/format.util.js';
 
-function animateTimeline() {
-  const items = document.querySelectorAll('.timeline__item');
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries
-        .filter((entry) => entry.isIntersecting)
-        .forEach((entry) => {
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        });
-    },
-    { threshold: 0.4 },
-  );
-  items.forEach((item) => observer.observe(item));
-}
+const EMPTY_REVIEWS_MESSAGE = 'Aucun avis pour le moment';
 
 function renderReview(review) {
   return el('article', { className: 'review-card' }, [
-    el('h3', { text: review.authorName }),
+    el('div', { className: 'review-card__head' }, [
+      el('h3', { text: review.authorName }),
+      el('span', { className: 'review-card__date', text: formatDate(review.createdAt) }),
+    ]),
     el('p', {
       className: 'review-card__stars',
       text: formatStars(review.rating),
       'aria-label': `Note : ${review.rating} sur 5`,
     }),
-    el('p', { text: review.comment }),
-    el('small', { text: `Posté le ${formatDate(review.createdAt)}` }),
+    el('p', { className: 'review-card__comment', text: review.comment }),
   ]);
 }
 
@@ -39,7 +27,7 @@ async function loadReviews(list) {
     list.replaceChildren(
       ...(reviews.length
         ? reviews.map(renderReview)
-        : [el('p', { className: 'text-muted', text: 'Soyez le premier à laisser un avis !' })]),
+        : [el('p', { className: 'text-muted', text: EMPTY_REVIEWS_MESSAGE })]),
     );
   } catch (error) {
     showAlert(list, describeError(error), 'warning');
@@ -65,7 +53,7 @@ function setUpReviewForm(form, list) {
       list.querySelector('p.text-muted')?.remove();
       list.prepend(renderReview(review));
       form.reset();
-      showAlert(feedback, 'Merci pour votre avis !', 'success');
+      showAlert(feedback, 'Merci, votre avis est publié', 'success');
     } catch (error) {
       showAlert(feedback, describeError(error));
     } finally {
@@ -76,6 +64,5 @@ function setUpReviewForm(form, list) {
 }
 
 const reviewsList = document.getElementById('reviews-list');
-animateTimeline();
 loadReviews(reviewsList);
 setUpReviewForm(document.getElementById('review-form'), reviewsList);

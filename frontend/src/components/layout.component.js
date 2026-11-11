@@ -5,9 +5,10 @@ const NAV_LINKS = [
   { href: '/', label: 'Accueil' },
   { href: '/#comment', label: 'Comment ça marche' },
   { href: '/#faq', label: 'À propos' },
-  { href: '/services.html', label: 'Commander' },
   { href: '/contact.html', label: 'Contact' },
 ];
+
+const ORDER_LINK = { href: '/services.html', label: 'Commander' };
 
 const SOCIAL_LINKS = [
   { href: 'https://www.facebook.com', icon: 'bi-facebook', label: 'Facebook' },
@@ -27,21 +28,27 @@ function renderNavLink({ href, label }) {
   });
 }
 
+// One button in the navigation (the order page); account actions stay quiet text links.
 function renderAccountActions() {
+  const orderButton = el('a', {
+    href: ORDER_LINK.href,
+    className: 'btn btn-primary btn-sm',
+    text: ORDER_LINK.label,
+    'aria-current': isCurrentPage(ORDER_LINK.href) ? 'page' : undefined,
+  });
+
   if (!session.isLoggedIn()) {
-    return [el('a', { href: '/auth.html', className: 'btn btn-dark btn-sm', text: 'Connexion' })];
+    return [renderNavLink({ href: '/auth.html', label: 'Connexion' }), orderButton];
   }
   return [
-    el('a', { href: '/account.html', className: 'btn btn-outline-dark btn-sm' }, [
-      el('i', { className: 'bi bi-person-circle me-1', 'aria-hidden': 'true' }),
-      session.user.name,
-    ]),
+    renderNavLink({ href: '/account.html', label: session.user.name }),
     el('button', {
       type: 'button',
-      className: 'btn btn-dark btn-sm',
+      className: 'site-nav__link btn btn-link p-0',
       text: 'Déconnexion',
       on: { click: () => session.clear() },
     }),
+    orderButton,
   ];
 }
 
@@ -75,7 +82,7 @@ function renderHeader() {
 
   return el('div', { className: 'site-header__inner' }, [
     el('a', { href: '/', className: 'site-header__logo' }, [
-      el('img', { src: '/img/logo.png', alt: 'M3alem.ma', width: '150', height: '64' }),
+      el('img', { src: '/img/logo.png', alt: 'M3alem.ma', width: '128', height: '56' }),
     ]),
     toggle,
     nav,
@@ -94,7 +101,7 @@ function renderFooter() {
       ),
     ),
     el('p', {
-      text: `© ${new Date().getFullYear()} M3alem.ma · Projet open source sous licence MIT`,
+      text: `© ${new Date().getFullYear()} M3alem.ma · B click, M3alem ijik · Projet open source sous licence MIT`,
     }),
   ]);
 }

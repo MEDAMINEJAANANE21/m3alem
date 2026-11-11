@@ -20,11 +20,11 @@ const dom = {
 };
 
 function flashAdded(button) {
-  button.textContent = '✓ Ajouté';
-  button.classList.replace('btn-primary', 'btn-success');
+  button.textContent = 'Ajouté';
+  button.classList.replace('btn-primary', 'btn-secondary');
   setTimeout(() => {
     button.textContent = 'Réserver';
-    button.classList.replace('btn-success', 'btn-primary');
+    button.classList.replace('btn-secondary', 'btn-primary');
   }, ADDED_FEEDBACK_MS);
 }
 
@@ -204,7 +204,7 @@ function setUpCheckout() {
     dom.checkoutForm.reset();
     dom.checkoutFeedback.replaceChildren(
       el('div', { className: 'alert alert-success' }, [
-        `${bookedCount} réservation(s) envoyée(s) ! Un professionnel vous contactera sous 24h. `,
+        `${bookedCount} réservation(s) envoyée(s). Le prestataire doit maintenant la confirmer. `,
         el('a', { href: '/account.html', text: 'Voir mes réservations' }),
       ]),
     );

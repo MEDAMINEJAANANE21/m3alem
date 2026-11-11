@@ -1,62 +1,171 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
 @import 'bootstrap-icons/font/bootstrap-icons.min.css';
 
-/* Design tokens shared by every page. Change the brand here, not in page stylesheets. */
+/*
+ * Design tokens shared by every page. Change the brand here, not in page stylesheets.
+ * Direction: reliable, concrete, warm — the Moroccan home and the toolbox.
+ * Warm neutral ramp for surfaces, the brand blue as the only accent.
+ */
 :root {
-  --color-primary-100: #e3f2fd;
-  --color-primary-200: #90caf9;
-  --color-primary-400: #2e86de;
-  --color-primary-500: #1565c0;
-  --color-accent: #ffd700;
-  --color-surface: #ffffff;
-  --color-surface-muted: #f5f7fa;
-  --color-border: #e1e5ea;
-  --color-text: #263238;
-  --color-text-muted: #607d8b;
+  --color-bg: #f7f4ee;
+  --color-surface: #fdfbf7;
+  --color-raised: #efe9df;
+  --color-hairline: rgb(31 27 22 / 8%);
+  --color-hairline-strong: rgb(31 27 22 / 14%);
+  --color-text: #1f1b16;
+  --color-text-secondary: #5e554a;
+  --color-text-muted: #7b7266;
 
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 20px;
-  --shadow-sm: 0 2px 10px rgb(0 0 0 / 6%);
-  --shadow-md: 0 10px 30px rgb(0 0 0 / 10%);
+  --color-accent: #1565c0;
+  --color-accent-hover: #0f4f99;
+  --color-accent-soft: rgb(21 101 192 / 8%);
+  --color-positive: #16a34a;
+  --color-negative: #dc2626;
+  --color-rating: #b7791f;
 
-  --font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-sans: 'Instrument Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
 
-  /* Map the brand onto Bootstrap's variables. */
-  --bs-primary: var(--color-primary-400);
-  --bs-body-font-family: var(--font-family);
+  --radius-control: 10px;
+  --radius-card: 16px;
+  --radius-panel: 20px;
+  --shadow-small: 0 1px 2px rgb(31 27 22 / 5%);
+  --shadow-float: 0 8px 24px rgb(31 27 22 / 8%);
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 150ms;
+  --duration-enter: 400ms;
+
+  /* Map the tokens onto Bootstrap's variables. */
+  --bs-body-font-family: var(--font-sans);
   --bs-body-color: var(--color-text);
+  --bs-body-bg: var(--color-bg);
+  --bs-border-color: var(--color-hairline-strong);
+  --bs-link-color-rgb: 21, 101, 192;
+  --bs-link-hover-color-rgb: 15, 79, 153;
+  --bs-secondary-color: var(--color-text-secondary);
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Keeps anchored sections from hiding under the sticky header. */
+  scroll-padding-top: 96px;
 }
 
 body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background-color: var(--color-surface);
+  background-color: var(--color-bg);
   color: var(--color-text);
-  font-family: var(--font-family);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.5;
 }
 
 main {
   flex: 1;
 }
 
-html {
-  scroll-behavior: smooth;
-  /* Keeps anchored sections from hiding under the sticky header. */
-  scroll-padding-top: 100px;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 500;
+}
+
+.text-muted {
+  color: var(--color-text-muted) !important;
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Buttons: accent for the primary action, raised surface for the rest. */
+.btn {
+  --bs-btn-border-radius: var(--radius-control);
+  --bs-btn-font-weight: 500;
+  --bs-btn-padding-x: 16px;
+  transition:
+    color var(--duration-fast) var(--ease),
+    background-color var(--duration-fast) var(--ease),
+    border-color var(--duration-fast) var(--ease),
+    transform var(--duration-fast) var(--ease);
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-lg {
+  --bs-btn-padding-x: 20px;
+  --bs-btn-padding-y: 11px;
+  --bs-btn-font-size: 16px;
+  --bs-btn-border-radius: var(--radius-control);
 }
 
 .btn-primary {
-  --bs-btn-bg: var(--color-primary-400);
-  --bs-btn-border-color: var(--color-primary-400);
-  --bs-btn-hover-bg: var(--color-primary-500);
-  --bs-btn-hover-border-color: var(--color-primary-500);
-  --bs-btn-active-bg: var(--color-primary-500);
+  --bs-btn-bg: var(--color-accent);
+  --bs-btn-border-color: var(--color-accent);
+  --bs-btn-hover-bg: var(--color-accent-hover);
+  --bs-btn-hover-border-color: var(--color-accent-hover);
+  --bs-btn-active-bg: var(--color-accent-hover);
+  --bs-btn-active-border-color: var(--color-accent-hover);
+  --bs-btn-disabled-bg: var(--color-accent);
+  --bs-btn-disabled-border-color: var(--color-accent);
 }
 
+.btn-secondary {
+  --bs-btn-color: var(--color-text);
+  --bs-btn-bg: var(--color-surface);
+  --bs-btn-border-color: var(--color-hairline-strong);
+  --bs-btn-hover-color: var(--color-text);
+  --bs-btn-hover-bg: var(--color-raised);
+  --bs-btn-hover-border-color: var(--color-hairline-strong);
+  --bs-btn-active-color: var(--color-text);
+  --bs-btn-active-bg: var(--color-raised);
+  --bs-btn-active-border-color: var(--color-hairline-strong);
+}
+
+.btn:focus-visible,
+.form-control:focus,
+.form-select:focus,
+.form-check-input:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgb(21 101 192 / 20%);
+}
+
+.form-control,
+.form-select {
+  border-color: var(--color-hairline-strong);
+  border-radius: var(--radius-control);
+  background-color: var(--color-surface);
+}
+
+.form-check-input:checked {
+  border-color: var(--color-accent);
+  background-color: var(--color-accent);
+}
+
+.form-label {
+  margin-top: 12px;
+  margin-bottom: 4px;
+  color: var(--color-text-secondary);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.alert {
+  border-radius: var(--radius-control);
+}
+
+/* Shared page shell for inner pages (services, account, contact…) */
 .page {
-  padding-block: 2.5rem;
+  padding-block: 48px 80px;
 }
 
 .page--centered {
@@ -64,30 +173,23 @@ html {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
+  gap: 16px;
   text-align: center;
 }
 
 .page__title {
-  margin-bottom: 2rem;
-  font-weight: 700;
-  text-align: center;
+  margin-bottom: 32px;
+  font-size: 32px;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
 }
 
-.page__title::after {
-  content: '';
-  display: block;
-  width: 80px;
-  height: 4px;
-  margin: 0.75rem auto 0;
-  border-radius: 2px;
-  background: var(--color-primary-400);
-}
-
-.form-label {
-  margin-top: 0.75rem;
-  margin-bottom: 0.25rem;
-  font-weight: 500;
+/* Signature: the work order ("bon d'intervention") reference, set in mono. */
+.work-order-ref {
+  color: var(--color-text-muted);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
 }
 
 @media (prefers-reduced-motion: reduce) {

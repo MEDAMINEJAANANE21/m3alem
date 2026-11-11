@@ -25,7 +25,7 @@ form.addEventListener('submit', async (event) => {
   try {
     await sendMessage(new FormData(form));
     form.reset();
-    showAlert(feedback, 'Votre message a bien été envoyé. Merci !', 'success');
+    showAlert(feedback, 'Message envoyé, merci. Nous vous répondons par e-mail.', 'success');
   } catch {
     showAlert(feedback, "Le message n'a pas pu être envoyé. Veuillez réessayer.");
   } finally {

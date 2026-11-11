@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="M3alem.ma : réservez en ligne un plombier, un électricien, un ménage ou un jardinier au Maroc."
+      content="M3alem.ma : réservez un plombier, un électricien, un ménage ou un jardinier au Maroc, au prix affiché."
     />
     <title>M3alem.ma – Services à domicile</title>
     <link rel="icon" href="/img/logo.png" />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap"
     />
     <link rel="stylesheet" href="/src/styles/base.css" />
     <link rel="stylesheet" href="/src/styles/layout.css" />
@@ -21,230 +21,312 @@
     <header id="site-header"></header>
 
     <main>
-      <section class="hero">
-        <div class="hero__card">
-          <h1>Votre expert du service à domicile en ligne</h1>
-          <p class="hero__slogan">B Click M3alem Ijik</p>
-          <a class="btn btn-success btn-lg rounded-pill px-5" href="/services.html"
-            >Réserver un service</a
-          >
-          <p class="hero__tagline">
-            M3alem.ma : votre partenaire de confiance au quotidien.<br />
-            Libérez du temps, nous nous occupons du reste !
-          </p>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero__inner">
+          <div class="hero__text">
+            <p class="hero__slogan">B click, M3alem ijik</p>
+            <h1 id="hero-title" class="hero__title">Le bon artisan chez vous, au prix affiché</h1>
+            <p class="hero__lead">
+              Plombier, électricien, ménage, jardinage et cinq autres métiers. Vous choisissez le
+              service, le jour et l'adresse&nbsp;: le prix est connu avant de réserver.
+            </p>
+            <div class="hero__actions">
+              <a class="btn btn-primary btn-lg" href="/services.html">Réserver un service</a>
+              <a class="btn btn-secondary btn-lg" href="#comment">Comment ça marche</a>
+            </div>
+          </div>
+
+          <figure class="hero__visual" aria-label="Exemple de réservation">
+            <img
+              class="hero__photo"
+              src="/img/services/plombier.jpg"
+              alt="Un plombier répare une canalisation chez une cliente"
+              width="1280"
+              height="853"
+              fetchpriority="high"
+            />
+
+            <div class="work-order">
+              <div class="work-order__head">
+                <span>Bon d'intervention</span>
+                <span class="work-order-ref">N° 0142</span>
+              </div>
+              <p class="work-order__title">Dépannage urgence fuite</p>
+              <p class="work-order__meta">Plombier · Karim B.</p>
+
+              <div class="work-order__tear" aria-hidden="true"></div>
+
+              <ul class="work-order__details">
+                <li>
+                  <i class="bi bi-calendar3" aria-hidden="true"></i>
+                  Mercredi 14 octobre · 14:00
+                </li>
+                <li>
+                  <i class="bi bi-geo-alt" aria-hidden="true"></i>
+                  12 rue Atlas, Rabat
+                </li>
+              </ul>
+
+              <div class="work-order__foot">
+                <span class="work-order__status">Confirmé</span>
+                <span class="work-order__total">85 €</span>
+              </div>
+            </div>
+          </figure>
         </div>
       </section>
 
       <section class="section" aria-labelledby="services-title">
-        <div class="container">
-          <h2 id="services-title" class="section__title">Nos services</h2>
+        <div class="section__inner">
+          <div class="section__head">
+            <h2 id="services-title">Nos services</h2>
+            <p>Neuf métiers, avec un tarif affiché pour chaque prestation.</p>
+          </div>
           <ul class="service-grid">
             <li>
-              <a class="service-card" href="/services.html#plombier"
-                ><img src="/img/services/plombier.jpg" alt="" loading="lazy" /><span
-                  >Plombier</span
-                ></a
-              >
+              <a class="service-card" href="/services.html#plombier">
+                <img
+                  src="/img/services/plombier.jpg"
+                  alt=""
+                  loading="lazy"
+                  width="1280"
+                  height="853"
+                />
+                <span class="service-card__label"
+                  >Plombier <i class="bi bi-arrow-right" aria-hidden="true"></i
+                ></span>
+              </a>
             </li>
             <li>
-              <a class="service-card" href="/services.html#electricien"
-                ><img src="/img/services/electricien.jpg" alt="" loading="lazy" /><span
-                  >Électricien</span
-                ></a
-              >
+              <a class="service-card" href="/services.html#electricien">
+                <img
+                  src="/img/services/electricien.jpg"
+                  alt=""
+                  loading="lazy"
+                  width="1280"
+                  height="853"
+                />
+                <span class="service-card__label"
+                  >Électricien <i class="bi bi-arrow-right" aria-hidden="true"></i
+                ></span>
+              </a>
             </li>
             <li>
-              <a class="service-card" href="/services.html#climatisation"
-                ><img src="/img/services/climatisation.jpg" alt="" loading="lazy" /><span
-                  >Climatisation</span
-                ></a
-              >
+              <a class="service-card" href="/services.html#climatisation">
+                <img
+                  src="/img/services/climatisation.jpg"
+                  alt=""
+                  loading="lazy"
+                  width="853"
+                  height="1280"
+                />
+                <span class="service-card__label"
+                  >Climatisation <i class="bi bi-arrow-right" aria-hidden="true"></i
+                ></span>
+              </a>
             </li>
             <li>
-              <a class="service-card" href="/services.html#menage"
-                ><img src="/img/services/menage.jpg" alt="" loading="lazy" /><span>Ménage</span></a
-              >
+              <a class="service-card" href="/services.html#menage">
+                <img
+                  src="/img/services/menage.jpg"
+                  alt=""
+                  loading="lazy"
+                  width="853"
+                  height="1280"
+                />
+                <span class="service-card__label"
+                  >Ménage <i class="bi bi-arrow-right" aria-hidden="true"></i
+                ></span>
+              </a>
             </li>
             <li>
-              <a class="service-card" href="/services.html#lavage-auto"
-                ><img src="/img/services/lavage-auto.jpg" alt="" loading="lazy" /><span
-                  >Lavage de voiture</span
-                ></a
-              >
+              <a class="service-card" href="/services.html#lavage-auto">
+                <img
+                  src="/img/services/lavage-auto.jpg"
+                  alt=""
+                  loading="lazy"
+                  width="1024"
+                  height="1280"
+                />
+                <span class="service-card__label"
+                  >Lavage de voiture <i class="bi bi-arrow-right" aria-hidden="true"></i
+                ></span>
+              </a>
             </li>
             <li>
-              <a class="service-card" href="/services.html#jardinage"
-                ><img src="/img/services/jardinage.jpg" alt="" loading="lazy" /><span
-                  >Jardinage</span
-                ></a
-              >
+              <a class="service-card" href="/services.html#jardinage">
+                <img
+                  src="/img/services/jardinage.jpg"
+                  alt=""
+                  loading="lazy"
+                  width="1280"
+                  height="853"
+                />
+                <span class="service-card__label"
+                  >Jardinage <i class="bi bi-arrow-right" aria-hidden="true"></i
+                ></span>
+              </a>
             </li>
             <li>
-              <a class="service-card" href="/services.html#serrurier"
-                ><img src="/img/services/serrurier.jpg" alt="" loading="lazy" /><span
-                  >Serrurier</span
-                ></a
-              >
+              <a class="service-card" href="/services.html#serrurier">
+                <img
+                  src="/img/services/serrurier.jpg"
+                  alt=""
+                  loading="lazy"
+                  width="853"
+                  height="1280"
+                />
+                <span class="service-card__label"
+                  >Serrurier <i class="bi bi-arrow-right" aria-hidden="true"></i
+                ></span>
+              </a>
             </li>
             <li>
-              <a class="service-card" href="/services.html#menuisier"
-                ><img src="/img/services/menuisier.jpg" alt="" loading="lazy" /><span
-                  >Menuisier</span
-                ></a
-              >
+              <a class="service-card" href="/services.html#menuisier">
+                <img
+                  src="/img/services/menuisier.jpg"
+                  alt=""
+                  loading="lazy"
+                  width="1280"
+                  height="845"
+                />
+                <span class="service-card__label"
+                  >Menuisier <i class="bi bi-arrow-right" aria-hidden="true"></i
+                ></span>
+              </a>
             </li>
             <li>
-              <a class="service-card" href="/services.html#mecanicien"
-                ><img src="/img/services/mecanicien.jpg" alt="" loading="lazy" /><span
-                  >Mécanicien</span
-                ></a
-              >
+              <a class="service-card" href="/services.html#mecanicien">
+                <img
+                  src="/img/services/mecanicien.jpg"
+                  alt=""
+                  loading="lazy"
+                  width="1280"
+                  height="853"
+                />
+                <span class="service-card__label"
+                  >Mécanicien <i class="bi bi-arrow-right" aria-hidden="true"></i
+                ></span>
+              </a>
             </li>
           </ul>
         </div>
       </section>
 
-      <section class="section timeline" id="comment" aria-labelledby="timeline-title">
-        <div class="container">
-          <h2 id="timeline-title" class="section__title text-white">Comment ça marche ?</h2>
-          <ol class="timeline__list">
-            <li class="timeline__item">
-              <span class="timeline__icon"
-                ><i class="bi bi-person-plus-fill" aria-hidden="true"></i
-              ></span>
-              <div>
-                <h3>Je crée mon compte</h3>
-                <p>Un nom, un e-mail et un mot de passe : c'est tout !</p>
-              </div>
+      <section class="section section--raised" id="comment" aria-labelledby="steps-title">
+        <div class="section__inner">
+          <div class="section__head">
+            <h2 id="steps-title">Comment ça marche</h2>
+            <p>Trois étapes, du compte à l'intervention.</p>
+          </div>
+          <ol class="steps">
+            <li class="step">
+              <span class="step__number">01</span>
+              <i class="bi bi-person-plus step__icon" aria-hidden="true"></i>
+              <h3>Je crée mon compte</h3>
+              <p>Un nom, un e-mail et un mot de passe suffisent.</p>
             </li>
-            <li class="timeline__item">
-              <span class="timeline__icon"
-                ><i class="bi bi-cart-check-fill" aria-hidden="true"></i
-              ></span>
-              <div>
-                <h3>Je commande un service</h3>
-                <p>Je choisis le service, la date, l'heure et l'adresse de la prestation.</p>
-              </div>
+            <li class="step">
+              <span class="step__number">02</span>
+              <i class="bi bi-calendar-check step__icon" aria-hidden="true"></i>
+              <h3>Je commande un service</h3>
+              <p>Je choisis le service, la date, l'heure et l'adresse de la prestation.</p>
             </li>
-            <li class="timeline__item">
-              <span class="timeline__icon"
-                ><i class="bi bi-house-check-fill" aria-hidden="true"></i
-              ></span>
-              <div>
-                <h3>M3alem ja !</h3>
-                <p>Le professionnel intervient chez moi et s'occupe de tout.</p>
-              </div>
+            <li class="step">
+              <span class="step__number">03</span>
+              <i class="bi bi-house-check step__icon" aria-hidden="true"></i>
+              <h3>M3alem ja</h3>
+              <p>Le prestataire confirme ma réservation, puis intervient chez moi.</p>
             </li>
           </ol>
         </div>
       </section>
 
       <section class="section" id="faq" aria-labelledby="faq-title">
-        <div class="container">
-          <h2 id="faq-title" class="section__title">Questions fréquentes</h2>
-          <div class="row align-items-center g-5">
-            <div class="col-lg-5">
-              <img src="/img/faq.jpg" class="img-fluid" alt="" loading="lazy" />
+        <div class="section__inner faq">
+          <div class="section__head faq__head">
+            <h2 id="faq-title">Questions fréquentes</h2>
+            <p>Une autre question&nbsp;? <a href="/contact.html">Écrivez-nous</a></p>
+          </div>
+          <div class="accordion faq__list" id="faq-accordion">
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq-1"
+                  aria-expanded="false"
+                  aria-controls="faq-1"
+                >
+                  Quels types de services proposez-vous&nbsp;?
+                </button>
+              </h3>
+              <div id="faq-1" class="accordion-collapse collapse" data-bs-parent="#faq-accordion">
+                <div class="accordion-body">
+                  Plomberie, électricité, climatisation, ménage, jardinage, serrurerie, menuiserie,
+                  lavage auto et mécanique à domicile. Chaque prestation a son tarif dans le
+                  catalogue.
+                </div>
+              </div>
             </div>
-            <div class="col-lg-7">
-              <div class="accordion" id="faq-accordion">
-                <div class="accordion-item">
-                  <h3 class="accordion-header">
-                    <button
-                      class="accordion-button collapsed"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#faq-1"
-                      aria-expanded="false"
-                      aria-controls="faq-1"
-                    >
-                      Quels types de services proposez-vous ?
-                    </button>
-                  </h3>
-                  <div
-                    id="faq-1"
-                    class="accordion-collapse collapse"
-                    data-bs-parent="#faq-accordion"
-                  >
-                    <div class="accordion-body">
-                      Une large gamme de services à domicile : plomberie, électricité,
-                      climatisation, ménage, jardinage, serrurerie, menuiserie, lavage auto,
-                      mécanique et bien plus encore.
-                    </div>
-                  </div>
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq-2"
+                  aria-expanded="false"
+                  aria-controls="faq-2"
+                >
+                  Dans quelles villes intervenez-vous&nbsp;?
+                </button>
+              </h3>
+              <div id="faq-2" class="accordion-collapse collapse" data-bs-parent="#faq-accordion">
+                <div class="accordion-body">
+                  Chaque prestataire indique sa ville et sa zone d'intervention. Le réseau commence
+                  par les grandes villes : Casablanca, Rabat, Marrakech, Fès, Tanger et Agadir.
                 </div>
-                <div class="accordion-item">
-                  <h3 class="accordion-header">
-                    <button
-                      class="accordion-button collapsed"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#faq-2"
-                      aria-expanded="false"
-                      aria-controls="faq-2"
-                    >
-                      Dans quelles villes intervenez-vous ?
-                    </button>
-                  </h3>
-                  <div
-                    id="faq-2"
-                    class="accordion-collapse collapse"
-                    data-bs-parent="#faq-accordion"
-                  >
-                    <div class="accordion-body">
-                      Principalement dans les grandes villes marocaines : Casablanca, Rabat,
-                      Marrakech, Fès, Tanger et Agadir. Notre zone d'intervention s'élargit
-                      régulièrement.
-                    </div>
-                  </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq-3"
+                  aria-expanded="false"
+                  aria-controls="faq-3"
+                >
+                  Comment choisir un prestataire de confiance&nbsp;?
+                </button>
+              </h3>
+              <div id="faq-3" class="accordion-collapse collapse" data-bs-parent="#faq-accordion">
+                <div class="accordion-body">
+                  Chaque prestataire a un compte à son nom et confirme lui-même vos réservations.
+                  Les avis des clients sont publiés plus bas sur cette page.
                 </div>
-                <div class="accordion-item">
-                  <h3 class="accordion-header">
-                    <button
-                      class="accordion-button collapsed"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#faq-3"
-                      aria-expanded="false"
-                      aria-controls="faq-3"
-                    >
-                      Vos prestataires sont-ils vérifiés ?
-                    </button>
-                  </h3>
-                  <div
-                    id="faq-3"
-                    class="accordion-collapse collapse"
-                    data-bs-parent="#faq-accordion"
-                  >
-                    <div class="accordion-body">
-                      Oui, nos prestataires sont vérifiés, expérimentés et évalués régulièrement par
-                      nos clients.
-                    </div>
-                  </div>
-                </div>
-                <div class="accordion-item">
-                  <h3 class="accordion-header">
-                    <button
-                      class="accordion-button collapsed"
-                      type="button"
-                      data-bs-toggle="collapse"
-                      data-bs-target="#faq-4"
-                      aria-expanded="false"
-                      aria-controls="faq-4"
-                    >
-                      Quels sont les modes de paiement acceptés ?
-                    </button>
-                  </h3>
-                  <div
-                    id="faq-4"
-                    class="accordion-collapse collapse"
-                    data-bs-parent="#faq-accordion"
-                  >
-                    <div class="accordion-body">
-                      Espèces, virement bancaire ou paiement mobile (Inwi Money, Orange Money,
-                      CIH…), selon la disponibilité.
-                    </div>
-                  </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#faq-4"
+                  aria-expanded="false"
+                  aria-controls="faq-4"
+                >
+                  Comment se passe le paiement&nbsp;?
+                </button>
+              </h3>
+              <div id="faq-4" class="accordion-collapse collapse" data-bs-parent="#faq-accordion">
+                <div class="accordion-body">
+                  Vous réglez directement le prestataire après l'intervention. Le moyen de paiement
+                  (espèces, virement ou paiement mobile) se convient avec lui.
                 </div>
               </div>
             </div>
@@ -252,10 +334,15 @@
         </div>
       </section>
 
-      <section class="section section--muted" aria-labelledby="reviews-title">
-        <div class="container">
-          <h2 id="reviews-title" class="section__title">Avis de nos clients</h2>
-          <div id="reviews-list" class="reviews" aria-live="polite"></div>
+      <section class="section section--raised" aria-labelledby="reviews-title">
+        <div class="section__inner reviews-layout">
+          <div>
+            <div class="section__head">
+              <h2 id="reviews-title">Avis de nos clients</h2>
+              <p>Les derniers avis laissés sur le site.</p>
+            </div>
+            <div id="reviews-list" class="reviews" aria-live="polite"></div>
+          </div>
 
           <form id="review-form" class="review-form" novalidate>
             <h3>Donnez votre avis</h3>
@@ -283,14 +370,14 @@
 
             <label class="form-label" for="review-rating">Note</label>
             <select class="form-select" id="review-rating" name="rating" required>
-              <option value="5">★★★★★ (5/5)</option>
-              <option value="4">★★★★☆ (4/5)</option>
-              <option value="3">★★★☆☆ (3/5)</option>
-              <option value="2">★★☆☆☆ (2/5)</option>
-              <option value="1">★☆☆☆☆ (1/5)</option>
+              <option value="5">5 sur 5</option>
+              <option value="4">4 sur 5</option>
+              <option value="3">3 sur 5</option>
+              <option value="2">2 sur 5</option>
+              <option value="1">1 sur 5</option>
             </select>
 
-            <button class="btn btn-primary mt-3" type="submit">Envoyer</button>
+            <button class="btn btn-primary mt-4 w-100" type="submit">Envoyer mon avis</button>
           </form>
         </div>
       </section>

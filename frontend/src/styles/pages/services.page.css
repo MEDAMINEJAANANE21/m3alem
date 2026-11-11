@@ -1,27 +1,25 @@
 .catalog {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 320px;
+  grid-template-columns: minmax(0, 1fr) 340px;
   align-items: start;
-  gap: 2rem;
+  gap: 32px;
 }
 
 /* Categories */
 .category {
-  margin-bottom: 1.25rem;
-  padding: 1rem 1.25rem;
-  border-left: 4px solid var(--color-primary-400);
-  border-radius: var(--radius-md);
-  background: var(--color-surface-muted);
-  box-shadow: var(--shadow-sm);
+  margin-bottom: 12px;
+  border: 1px solid var(--color-hairline);
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
 }
 
 .category__title {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: var(--color-primary-500);
-  font-size: 1.25rem;
-  font-weight: 600;
+  padding: 16px 20px;
+  font-size: 18px;
+  font-weight: 500;
   cursor: pointer;
   list-style: none;
 }
@@ -31,37 +29,36 @@
 }
 
 .category__title::after {
-  content: '▶';
-  font-size: 0.8em;
-  transition: transform 0.3s ease;
+  content: '\F282';
+  color: var(--color-text-muted);
+  font-family: 'bootstrap-icons';
+  font-size: 14px;
+  transition: transform var(--duration-fast) var(--ease);
 }
 
 .category[open] .category__title::after {
-  transform: rotate(90deg);
+  transform: rotate(180deg);
 }
 
 .category__services {
-  margin: 1rem 0 0;
-  padding: 0;
+  margin: 0;
+  padding: 0 20px;
   list-style: none;
 }
 
 .category__note {
-  margin: 1rem 0 0;
-  padding: 0.6rem 0.8rem;
-  border-radius: var(--radius-sm);
-  background: var(--color-surface);
+  margin: 0;
+  padding: 12px 20px 16px;
   color: var(--color-text-muted);
-  font-size: 0.875rem;
-  font-style: italic;
+  font-size: 13px;
 }
 
 .service-item {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  padding: 0.75rem 0;
-  border-bottom: 1px solid var(--color-border);
+  gap: 16px;
+  padding: 12px 0;
+  border-top: 1px solid var(--color-hairline);
 }
 
 .service-item__info {
@@ -73,50 +70,60 @@
 }
 
 .service-item__name {
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .service-item__desc {
-  color: var(--color-text-muted);
-  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  font-size: 14px;
 }
 
 .service-item__price {
-  color: var(--color-primary-500);
-  font-weight: 700;
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
   white-space: nowrap;
 }
 
 .service-item__actions {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 8px;
+}
+
+.service-item__actions .btn {
+  min-width: 88px;
 }
 
 .service-item__quantity {
-  width: 4.5rem;
+  width: 64px;
 }
 
 /* Cart */
 .cart {
   position: sticky;
-  top: 100px;
-  padding: 1.25rem;
-  border-top: 5px solid var(--color-primary-400);
-  border-radius: var(--radius-md);
+  top: 88px;
+  padding: 20px;
+  border: 1px solid var(--color-hairline);
+  border-radius: var(--radius-card);
   background: var(--color-surface);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-small);
 }
 
 .cart__title {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  font-size: 1.25rem;
+  gap: 8px;
+  margin: 0;
+  font-size: 18px;
+}
+
+.cart__title i {
+  color: var(--color-text-muted);
+  font-size: 16px;
 }
 
 .cart__items {
-  margin: 1rem 0;
+  margin: 16px 0;
   padding: 0;
   list-style: none;
 }
@@ -125,28 +132,38 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-block: 0.5rem;
-  border-bottom: 1px dashed var(--color-border);
+  padding-block: 8px;
+  border-bottom: 1px dashed var(--color-hairline-strong);
 }
 
 .cart__item-name {
   margin: 0;
 }
 
+.cart__item small {
+  font-variant-numeric: tabular-nums;
+}
+
 .cart__empty {
-  padding-block: 1rem;
+  padding-block: 16px;
   color: var(--color-text-muted);
-  font-style: italic;
   text-align: center;
 }
 
 .cart__total {
-  text-align: right;
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+}
+
+.cart__total strong {
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
 }
 
 .cart__checkout h3 {
-  margin-top: 1rem;
-  font-size: 1.1rem;
+  margin: 24px 0 0;
+  font-size: 16px;
 }
 
 @media (max-width: 900px) {
