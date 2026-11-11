@@ -56,7 +56,7 @@ Mise en ligne gratuite (Atlas + Render) : [docs/DEPLOYMENT.md](docs/DEPLOYMENT.m
 ### Installation
 
 ```bash
-git clone https://github.com/<votre-pseudo>/m3alem.git
+git clone https://github.com/MEDAMINEJAANANE21/m3alem.git
 cd m3alem
 npm install
 

@@ -2,7 +2,7 @@
 
 > **B Click M3alem Ijik** — book a trusted home-service professional in a few clicks.
 
-[![CI](https://img.shields.io/badge/CI-GitHub_Actions-2088FF?logo=githubactions&logoColor=white)](.github/workflows/ci.yml)
+[![CI](https://github.com/MEDAMINEJAANANE21/m3alem/actions/workflows/ci.yml/badge.svg)](https://github.com/MEDAMINEJAANANE21/m3alem/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 ![Node](https://img.shields.io/badge/node-%3E%3D22.9-339933?logo=node.js&logoColor=white)
 
@@ -58,7 +58,7 @@ More details in [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md). The REST API is do
 ### Install and run
 
 ```bash
-git clone https://github.com/<your-username>/m3alem.git
+git clone https://github.com/MEDAMINEJAANANE21/m3alem.git
 cd m3alem
 npm install
 
