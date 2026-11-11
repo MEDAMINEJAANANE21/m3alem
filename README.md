@@ -6,7 +6,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 ![Node](https://img.shields.io/badge/node-%3E%3D22.9-339933?logo=node.js&logoColor=white)
 
-🇫🇷 [Lire en français](README.fr.md)
+🇫🇷 [Lire en français](docs/README.fr.md)
 
 M3alem.ma is an open-source marketplace that connects customers with home-service professionals
 in Morocco: plumbers, electricians, air-conditioning technicians, cleaners, gardeners, locksmiths,
@@ -163,7 +163,7 @@ m3alem/
 ```
 
 Files follow the `<feature>.<type>.js` naming convention (for example `auth.controller.js`,
-`session.store.js`). See [CONTRIBUTING.md](CONTRIBUTING.md#naming-conventions).
+`session.store.js`). See [CONTRIBUTING.md](.github/CONTRIBUTING.md#naming-conventions).
 
 ## Roadmap
 
@@ -178,8 +178,8 @@ Ideas for contributors — feel free to open an issue before starting:
 
 ## Contributing
 
-Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) and our
-[Code of Conduct](CODE_OF_CONDUCT.md). To report a vulnerability, see [SECURITY.md](SECURITY.md).
+Contributions are welcome! Please read [CONTRIBUTING.md](.github/CONTRIBUTING.md) and our
+[Code of Conduct](.github/CODE_OF_CONDUCT.md). To report a vulnerability, see [SECURITY.md](.github/SECURITY.md).
 
 ## License
 

@@ -3,16 +3,16 @@
 > **B Click M3alem Ijik** — réservez un professionnel de confiance pour votre maison en quelques clics.
 
 [![CI](https://github.com/MEDAMINEJAANANE21/m3alem/actions/workflows/ci.yml/badge.svg)](https://github.com/MEDAMINEJAANANE21/m3alem/actions/workflows/ci.yml)
-[![Licence : MIT](https://img.shields.io/badge/Licence-MIT-green.svg)](LICENSE)
+[![Licence : MIT](https://img.shields.io/badge/Licence-MIT-green.svg)](../LICENSE)
 ![Node](https://img.shields.io/badge/node-%3E%3D22.9-339933?logo=node.js&logoColor=white)
 
-🇬🇧 [Read in English](README.md)
+🇬🇧 [Read in English](../README.md)
 
 M3alem.ma est une marketplace open source qui met en relation des clients et des professionnels
 du service à domicile au Maroc : plombiers, électriciens, techniciens climatisation, ménage,
 jardiniers, serruriers, menuisiers, lavage auto et mécaniciens.
 
-![Page d'accueil de M3alem.ma : titre « Le bon artisan chez vous, au prix affiché » à côté d'une photo de plombier et d'un bon d'intervention](docs/images/home.png)
+![Page d'accueil de M3alem.ma : titre « Le bon artisan chez vous, au prix affiché » à côté d'une photo de plombier et d'un bon d'intervention](images/home.png)
 
 ## Fonctionnalités
 
@@ -45,8 +45,8 @@ d'API écrite en dur dans le client.
 | Base     | MongoDB                                                                         |
 | Outils   | npm workspaces, ESLint, Prettier, node:test + supertest, Docker, GitHub Actions |
 
-Détails : [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md). API : [docs/API.md](docs/API.md).
-Mise en ligne gratuite (Atlas + Render) : [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md).
+Détails : [ARCHITECTURE.md](ARCHITECTURE.md). API : [API.md](API.md).
+Mise en ligne gratuite (Atlas + Render) : [DEPLOYMENT.md](DEPLOYMENT.md).
 
 ## Démarrage
 
@@ -126,18 +126,18 @@ Commandes utiles : `docker compose logs -f backend`, `docker compose down` (arr�
 
 ## Organisation du code
 
-Voir la section « Project structure » du [README anglais](README.md#project-structure).
+Voir la section « Project structure » du [README anglais](../README.md#project-structure).
 Les fichiers suivent la convention `<fonctionnalité>.<type>.js` (ex. `auth.controller.js`,
-`session.store.js`) : voir [CONTRIBUTING.md](CONTRIBUTING.md#naming-conventions).
+`session.store.js`) : voir [CONTRIBUTING.md](../.github/CONTRIBUTING.md#naming-conventions).
 
 ## Contribuer
 
-Les contributions sont les bienvenues ! Lisez [CONTRIBUTING.md](CONTRIBUTING.md) et le
-[Code de conduite](CODE_OF_CONDUCT.md). Pour signaler une faille : [SECURITY.md](SECURITY.md).
+Les contributions sont les bienvenues ! Lisez [CONTRIBUTING.md](../.github/CONTRIBUTING.md) et le
+[Code de conduite](../.github/CODE_OF_CONDUCT.md). Pour signaler une faille : [SECURITY.md](../.github/SECURITY.md).
 
 ## Licence
 
-[MIT](LICENSE) © 2025 JAANANE
+[MIT](../LICENSE) © 2025 JAANANE
 
 Les photos et illustrations de `frontend/public/img` sont fournies pour la démonstration. Leur
 origine n'a pas été documentée : vérifiez leur licence avant tout usage commercial.

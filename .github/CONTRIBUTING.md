@@ -11,7 +11,7 @@ By participating, you agree to follow the [Code of Conduct](CODE_OF_CONDUCT.md).
 3. Copy `backend/.env.example` to `backend/.env` and set `JWT_SECRET`.
 4. Start MongoDB, then `npm run seed` and `npm run dev`.
 
-See the [README](README.md#getting-started) for details.
+See the [README](../README.md#getting-started) for details.
 
 ## Workflow
 
