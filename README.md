@@ -85,16 +85,28 @@ Created by `npm run seed` (password: `Password123!`, or `SEED_PASSWORD` from `.e
 
 ### Run with Docker
 
-```bash
-echo "JWT_SECRET=$(node -e "console.log(require('crypto').randomBytes(48).toString('hex'))")" > .env
-docker compose up --build
-```
-
-Open **http://localhost:8080**. To load the demo data:
+Run the whole stack (frontend, API, MongoDB and a database UI) with one command — only
+[Docker](https://www.docker.com/products/docker-desktop/) is required.
 
 ```bash
-docker compose run --rm -e NODE_ENV=development backend node backend/scripts/seed.js
+cp .env.example .env            # then set JWT_SECRET
+docker compose up -d --build    # build and start everything
+docker compose --profile seed up seed   # optional: load the demo data
 ```
+
+| Service       | URL                                | What you see                              |
+| ------------- | ---------------------------------- | ----------------------------------------- |
+| Frontend      | http://localhost:8080              | The website (nginx, proxies `/api`)       |
+| Backend       | http://localhost:3000/api/health   | The REST API, called directly             |
+| mongo-express | http://localhost:8081              | Browse the database (login `admin/admin`) |
+| MongoDB       | `mongodb://localhost:27017/m3alem` | Connect with MongoDB Compass              |
+
+A port is already used on your machine? Change `FRONTEND_PORT`, `API_PORT`, `MONGO_EXPRESS_PORT`
+or `MONGO_PORT` in `.env`. Only the frontend is reachable from other devices; the API, the database
+and its UI listen on `127.0.0.1` only.
+
+Useful commands: `docker compose logs -f backend`, `docker compose down` (stop),
+`docker compose down -v` (stop and delete the database).
 
 ## Scripts
 

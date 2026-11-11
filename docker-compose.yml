@@ -1,38 +1,89 @@
-# Full stack: http://localhost:8080
-#   frontend (nginx) --/api--> backend (Express) --> mongo
-# Usage: create a .env file next to this one with JWT_SECRET=..., then `docker compose up --build`.
+# Full stack for local use (default ports, change them in .env if they are taken):
+#   http://localhost:8080   frontend (nginx) — proxies /api to the backend
+#   http://localhost:3000   backend REST API (e.g. /api/health)
+#   http://localhost:8081   mongo-express — web UI to browse the database
+#   mongodb://localhost:27017  MongoDB (for MongoDB Compass)
+#
+# 1. cp .env.example .env   (then set JWT_SECRET)
+# 2. docker compose up --build
+# 3. docker compose --profile seed up seed   (optional demo data)
 
 services:
   mongo:
     image: mongo:7
     restart: unless-stopped
+    ports:
+      - '127.0.0.1:${MONGO_PORT:-27017}:27017'
     volumes:
       - mongo-data:/data/db
+    healthcheck:
+      test: ['CMD', 'mongosh', '--quiet', '--eval', "db.adminCommand('ping').ok"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
 
   backend:
     build:
       context: .
       dockerfile: backend/Dockerfile
+    image: m3alem-backend
     restart: unless-stopped
-    environment:
+    environment: &backend-env
       NODE_ENV: production
       PORT: 3000
       MONGODB_URI: mongodb://mongo:27017/m3alem
-      JWT_SECRET: ${JWT_SECRET:?Set JWT_SECRET in a .env file next to docker-compose.yml}
+      JWT_SECRET: ${JWT_SECRET:?Set JWT_SECRET in a .env file next to docker-compose.yml (see .env.example)}
       JWT_EXPIRES_IN: ${JWT_EXPIRES_IN:-2h}
       TRUST_PROXY: 1
+    ports:
+      - '127.0.0.1:${API_PORT:-3000}:3000'
     depends_on:
-      - mongo
+      mongo:
+        condition: service_healthy
+    healthcheck:
+      test: ['CMD', 'wget', '-qO-', 'http://localhost:3000/api/health']
+      interval: 5s
+      timeout: 5s
+      retries: 10
 
   frontend:
     build:
       context: .
       dockerfile: frontend/Dockerfile
+    image: m3alem-frontend
     restart: unless-stopped
     ports:
-      - '8080:80'
+      - '${FRONTEND_PORT:-8080}:80'
     depends_on:
-      - backend
+      backend:
+        condition: service_healthy
+
+  mongo-express:
+    image: mongo-express:1.0.2
+    restart: unless-stopped
+    ports:
+      - '127.0.0.1:${MONGO_EXPRESS_PORT:-8081}:8081'
+    environment:
+      ME_CONFIG_MONGODB_URL: mongodb://mongo:27017/
+      ME_CONFIG_BASICAUTH_USERNAME: ${MONGO_EXPRESS_USER:-admin}
+      ME_CONFIG_BASICAUTH_PASSWORD: ${MONGO_EXPRESS_PASSWORD:-admin}
+    depends_on:
+      mongo:
+        condition: service_healthy
+
+  # One-shot job: `docker compose --profile seed up seed` loads the demo catalog and accounts.
+  seed:
+    image: m3alem-backend
+    profiles: [seed]
+    environment:
+      <<: *backend-env
+      # The seed script refuses to run with NODE_ENV=production on purpose.
+      NODE_ENV: development
+      SEED_PASSWORD: ${SEED_PASSWORD:-Password123!}
+    command: ['node', 'backend/scripts/seed.js']
+    depends_on:
+      mongo:
+        condition: service_healthy
 
 volumes:
   mongo-data:

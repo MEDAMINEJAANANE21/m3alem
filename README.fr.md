@@ -83,16 +83,28 @@ Créés par `npm run seed` (mot de passe : `Password123!`, ou `SEED_PASSWORD` du
 
 ### Avec Docker
 
-```bash
-echo "JWT_SECRET=$(node -e "console.log(require('crypto').randomBytes(48).toString('hex'))")" > .env
-docker compose up --build
-```
-
-Ouvrir **http://localhost:8080**. Pour charger les données de démo :
+Toute la stack (frontend, API, MongoDB et une interface pour la base) se lance en une commande.
+Seul [Docker](https://www.docker.com/products/docker-desktop/) est nécessaire.
 
 ```bash
-docker compose run --rm -e NODE_ENV=development backend node backend/scripts/seed.js
+cp .env.example .env            # puis renseigner JWT_SECRET
+docker compose up -d --build    # construit et démarre tout
+docker compose --profile seed up seed   # optionnel : données de démo
 ```
+
+| Service       | URL                                | Ce que vous voyez                              |
+| ------------- | ---------------------------------- | ---------------------------------------------- |
+| Frontend      | http://localhost:8080              | Le site (nginx, qui transmet `/api`)           |
+| Backend       | http://localhost:3000/api/health   | L'API REST, appelée directement                |
+| mongo-express | http://localhost:8081              | Parcourir la base (identifiants `admin/admin`) |
+| MongoDB       | `mongodb://localhost:27017/m3alem` | Connexion avec MongoDB Compass                 |
+
+Un port est déjà pris sur votre machine ? Changez `FRONTEND_PORT`, `API_PORT`,
+`MONGO_EXPRESS_PORT` ou `MONGO_PORT` dans `.env`. Seul le frontend est accessible depuis
+d'autres appareils : l'API, la base et son interface écoutent uniquement sur `127.0.0.1`.
+
+Commandes utiles : `docker compose logs -f backend`, `docker compose down` (arrêter),
+`docker compose down -v` (arrêter et supprimer la base).
 
 ## Scripts
 
